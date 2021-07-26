@@ -1,0 +1,56 @@
+
+{% extends "layout.html" %}
+  {% block body %}
+  
+  <header class="masthead" style="background-image: url(' {{ url_for('static', filename='img/1.jpg') }}')">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1  style="color:black">{{params['heading']}}</h1>
+            <span class="subheading" style="color:black;">{{params['subheading']}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<body> <!-- Main Content -->
+
+ 
+<div class="container">
+  <a class="btn btn-primary" href="/edit/0">Add Post</a>
+            <hr>
+              
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Serial number</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for post in post %}
+      <tr>
+        <td>{{post.Srn}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.date}}</td>
+         <td><a href="/edit/{{post.Srn}}"><button class="btn btn-primary"  method= "POST">Edit</button></a></td>
+         <td><a href="/delete/{{post.Srn}}"><button class="btn btn-primary" >Delete</button></td>
+
+      </tr>
+      {% endfor %}
+     
+    </tbody>
+  </table>
+  <a class="btn btn-primary" href="/logout">Logout</a>
+</div>       
+
+</body>
+
+
+
+ {% endblock %} 
+ 

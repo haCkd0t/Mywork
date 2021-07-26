@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+ <header class="masthead" style="background-image: url(' {{ url_for('static', filename='img/2.jpg') }}')">
+
+</head>
+    {% for pic in pics %}
+    
+ <img src='/static/images/{{pic}}' width="75%" />
+ <hr>
+ 
+ <hr>
+
+    {% endfor %}
+</head>
+
+
+{% endblock %}
